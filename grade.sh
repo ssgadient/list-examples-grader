@@ -5,6 +5,7 @@ $error=0
 
 rm -rf student-submission
 git clone $1 student-submission
+cd student-submission
 echo "Cloned student submission!"
 
 javac -cp $CP *.java
