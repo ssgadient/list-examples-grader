@@ -1,13 +1,12 @@
 # Create your grading script here
 
-$CP=".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar"
-$error=0
-
 rm -rf student-submission
 git clone $1 student-submission
 cd student-submission
-echo pwd
 echo "Cloned student submission!"
+
+$CP=".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar"
+$error=0
 
 javac -cp $CP *.java
 
