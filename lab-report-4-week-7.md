@@ -1,4 +1,5 @@
-# Part 1  
+# Week 6
+## Part 1 
 I chose the task where I change the name of the "start" parameter and its uses to "base".  
 
 Here is the string of vim commands I used to complete the task in as few keystrokes as possible.  
@@ -47,7 +48,7 @@ After using `<Enter>` :
 
 ![Image](https://ssgadient.github.io/CSE15L/lab-6/Step10.PNG)  
 
-# Part 2
+## Part 2
 The first method took 48.1 seconds. This was mainly due to the fact that my RSA id is somewhat messed up right now and I have to type in my password every time. Additionally, it took time to transfer the file to the remote server, after which I had to login and cd to the right folder and then run the bash script, which took a few seconds. 
 
 The second method took 25.4 seconds. It was much faster because it was already on the remote server and I didn't have to deal with all the authentiatication issues that method 1 had. Additionally, I did not have to switch directories or think about where the file is located, since I was doing everything from the week6-skill-demo1 directory. 
