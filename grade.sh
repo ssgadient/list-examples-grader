@@ -4,12 +4,9 @@ rm -rf student-submission
 git clone $1 student-submission
 cd student-submission
 echo "Cloned student submission!"
-
-$CP=".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar"
-$error=0
-
+CP=".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar"
+error=0
 javac -cp $CP *.java
-
 if [ $? -ne 0 ]
 then
     echo "Compiler error!"
@@ -33,10 +30,14 @@ fi
 if [ $error -eq 2 ]
 then
     echo "Score: 0/2"
-elif [ $error -eq 1 ]
+fi
+
+if [ $error -eq 1 ]
 then
     echo "Score: 1/2"
-elif [ $error -eq 0 ]
+fi
+
+if [ $error -eq 0 ]
 then
     echo "Score: 2/2"
 fi
