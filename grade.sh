@@ -2,10 +2,10 @@
 
 rm -rf student-submission
 git clone $1 student-submission
-cd student-submission
 echo "Cloned student submission!"
 error=0
 CP="..:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar"
+cd student-submission
 javac -cp $CP *.java
 if [ $? -ne 0 ]
 then
@@ -13,6 +13,14 @@ then
     exit 1
 fi
 
+ls -a > fileList.txt
+if [ $(grep -c "ListExamples.class" fileList.txt) -eq 0 ]
+then
+    echo "\"ListExamples.java\" was not found!"
+    exit 1 
+fi
+
+cp ListExamples.class ..
 java -cp $CP org.junit.runner.JUnitCore TestListExamples 2> error.txt
 
 if [ $(grep -c "testFilter" error.txt) -ne 0 ]
