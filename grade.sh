@@ -6,7 +6,7 @@ cd student-submission
 echo "Cloned student submission!"
 error=0
 CP="..:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar"
-javac -target 1.8 -cp $CP *.java
+javac -cp $CP *.java
 if [ $? -ne 0 ]
 then
     echo "Compiler error!"
