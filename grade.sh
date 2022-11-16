@@ -46,15 +46,16 @@ fi
 if [ $error -eq 2 ]
 then
     echo "Score: 0/2"
+    echo "See error.txt file in student-submission for details"
 fi
 
 if [ $error -eq 1 ]
 then
     echo "Score: 1/2"
+    echo "See error.txt file in student-submission for details"
 fi
 
 if [ $error -eq 0 ]
 then
     echo "Score: 2/2"
 fi
-echo "See error.txt file in student-submission for details"
