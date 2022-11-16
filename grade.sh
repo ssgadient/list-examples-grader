@@ -6,33 +6,39 @@ echo "Cloned student submission!"
 error=0
 CP="..:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar"
 cd student-submission
+
+ls -a > fileList.txt
+if [ $(grep -c "ListExamples.java" fileList.txt) -eq 0 ]
+then
+    echo "\"ListExamples.java\" was not found!"
+    exit 1
+fi
+
 javac -cp $CP *.java
+
 if [ $? -ne 0 ]
 then
     echo "Compiler error!"
     exit 1
 fi
 
-ls -a > fileList.txt
-if [ $(grep -c "ListExamples.class" fileList.txt) -eq 0 ]
-then
-    echo "\"ListExamples.java\" was not found!"
-    exit 1 
-fi
-
 cp ListExamples.class ..
-java -cp $CP org.junit.runner.JUnitCore TestListExamples 2> error.txt
+java -cp $CP org.junit.runner.JUnitCore TestListExamples > error.txt
 
 if [ $(grep -c "testFilter" error.txt) -ne 0 ]
 then
-    $error += 1
-    echo "testFilter failed!"
+    let "error+=1"
+    echo "[FAILED 0/1] testFilter"
+else
+    echo "[SUCCESS 1/1] testFilter"
 fi
 
 if [ $(grep -c "testMerge" error.txt) -ne 0 ]
 then
-    $error += 1
-    echo "testMerge failed!"
+    let "error+=1"
+    echo "[FAILED 0/1] testMerge"
+else
+    echo "[SUCCESS 1/1] testMerge"
 fi
 
 if [ $error -eq 2 ]
