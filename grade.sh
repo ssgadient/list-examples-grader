@@ -57,4 +57,4 @@ if [ $error -eq 0 ]
 then
     echo "Score: 2/2"
 fi
-
+echo "See error.txt file in student-submission for details"
