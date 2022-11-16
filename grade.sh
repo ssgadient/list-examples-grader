@@ -2,11 +2,10 @@
 
 rm -rf student-submission
 rm ListExamples.class
-git clone "https://github.com/ssgadient/ListExamples.class"
 git clone $1 student-submission
 echo "Cloned student submission!"
 error=0
-javac -target 1.8 -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" GoodListExamples.java TestListExamples.java
+javac -target 1.8 -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" ListExamples.java TestListExamples.java
 CP="..:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar"
 cd student-submission
 
