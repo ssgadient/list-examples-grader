@@ -31,7 +31,7 @@ then
     let "error+=1"
     echo "[FAILED 0/1] testFilter"
 else
-    echo "[SUCCESS 1/1] testFilter"
+    echo "[PASSED 1/1] testFilter"
 fi
 
 if [ $(grep -c "testMerge" error.txt) -ne 0 ]
@@ -39,7 +39,7 @@ then
     let "error+=1"
     echo "[FAILED 0/1] testMerge"
 else
-    echo "[SUCCESS 1/1] testMerge"
+    echo "[PASSED 1/1] testMerge"
 fi
 
 if [ $error -eq 2 ]
