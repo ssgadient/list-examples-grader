@@ -1,8 +1,9 @@
 # Create your grading script here
 
 rm -rf student-submission
-git clone $1 student-submission
-echo "Cloned student submission!"
+echo "Cloning student submission..."
+git clone $1 student-submission 2> /dev/null
+echo "Done!"
 error=0
 javac -target 1.8 -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" ListExamples.java TestListExamples.java
 CP="..:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar"
@@ -15,6 +16,7 @@ then
     exit 1
 fi
 
+echo "Compiling..."
 javac -cp $CP *.java
 
 if [ $? -ne 0 ]
@@ -23,6 +25,8 @@ then
     exit 1
 fi
 
+echo "Done!"
+echo "Running tests..."
 cp ListExamples.class ..
 java -cp $CP org.junit.runner.JUnitCore TestListExamples > error.txt
 cp ../ListExamples.class .
@@ -57,4 +61,5 @@ fi
 if [ $error -eq 0 ]
 then
     echo "Score: 2/2"
+    echo "All tests passed!"
 fi
