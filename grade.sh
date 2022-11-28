@@ -1,5 +1,3 @@
-# Create your grading script here
-
 rm -rf student-submission
 echo "Cloning student submission..."
 git clone $1 student-submission 2> /dev/null
